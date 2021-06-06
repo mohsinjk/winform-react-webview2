@@ -11,8 +11,6 @@ class App extends React.Component<{}, { value: any, value1: any }> {
     this.handleSubmit = this.handleSubmit.bind(this);
     
     const data = qs.parse(window.location.search);
-    console.log(data);
-
     
     this.state = { value: '', value1: data.value1};
 
@@ -25,7 +23,7 @@ class App extends React.Component<{}, { value: any, value1: any }> {
   handleSubmit(event:any) {
 
     let testObj = {
-      avibelopp: this.state.value,
+      data: this.state.value,
     };
 
     (window as any).chrome.webview.postMessage(JSON.stringify(testObj));
@@ -43,7 +41,7 @@ class App extends React.Component<{}, { value: any, value1: any }> {
             Message:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Spara" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );
