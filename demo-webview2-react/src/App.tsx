@@ -1,9 +1,11 @@
 import React from 'react';
 import qs from 'query-string';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import './App.css';
 
-class App extends React.Component<{}, { value: any, value1: any }> {
+class App extends React.Component<{}, { mfeData: any, winformData: any }> {
   constructor(props:any) {
     super(props);
 
@@ -12,36 +14,33 @@ class App extends React.Component<{}, { value: any, value1: any }> {
     
     const data = qs.parse(window.location.search);
     
-    this.state = { value: '', value1: data.value1};
+    this.state = {winformData: data.winformData,  mfeData: '',};
 
   }
 
   handleChange(event:any) {
-    this.setState({value: event.target.value});
+    this.setState({mfeData: event.target.value});
   }
 
   handleSubmit(event:any) {
-
-    let testObj = {
-      data: this.state.value,
+    const data={
+      winformData:this.state.winformData,
+      mfeData:this.state.mfeData
     };
 
-    (window as any).chrome.webview.postMessage(JSON.stringify(testObj));
-
+    (window as any).chrome.webview.postMessage(JSON.stringify(data));
     event.preventDefault();
   }
 
   render() {
     return (  
       <div className="App">
-        <h1>MicroFrontEnd (MFE)</h1>
-        <h3>{this.state.value1}</h3>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Message:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
+        <h1>MicroFrontEnd</h1>
+        <h2>MFE</h2>
+        <h3>{this.state.winformData}</h3>
+        <form onSubmit={this.handleSubmit} autoComplete="off">
+          <TextField id="standard-basic" label="Message" value={this.state.mfeData} onChange={this.handleChange}/>
+          <Button variant="contained"  type="submit" color="secondary">Send</Button>
         </form>
       </div>
     );

@@ -9,7 +9,17 @@ body {
 .App {
   text-align: center;
 }
+h1 {
+  padding: 10px;
+}
 
+h3 {
+  padding: 10px;
+  color: burlywood;
+}
+form {
+  padding: 30px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -16,7 +16,7 @@ namespace DemoWebView2 {
         {
             await webView21.EnsureCoreWebView2Async(null);
             webView21.CoreWebView2.WebMessageReceived += ShowMessage;
-            webView21.Source = new Uri("http://localhost:3000?value1="+ message);
+            webView21.Source = new Uri("http://localhost:3000?winformData="+ message);
         }
 
         private void ShowMessage(object sender, CoreWebView2WebMessageReceivedEventArgs args)
