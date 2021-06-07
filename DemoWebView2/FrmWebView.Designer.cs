@@ -46,10 +46,11 @@ namespace DemoWebView2 {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 447);
             this.Controls.Add(this.webView21);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmWebView";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "MFE Container";
+            this.Text = "MFE container";
             this.Load += new System.EventHandler(this.FrmWebView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
