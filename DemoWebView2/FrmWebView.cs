@@ -17,6 +17,11 @@ namespace DemoWebView2 {
             await webView21.EnsureCoreWebView2Async(null);
             webView21.CoreWebView2.WebMessageReceived += ShowMessage;
             webView21.Source = new Uri("http://localhost:3000?winformData="+ message);
+            
+            //var userDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\MyWebView2";
+            ////var env = await CoreWebView2Environment.CreateAsync(null, userDataFolder);
+            //var env = await CoreWebView2Environment.CreateAsync(@"C:\temp\fixed-webview2\Microsoft.WebView2.FixedVersionRuntime.95.0.1020.30.x64", userDataFolder);
+            //await webView21.EnsureCoreWebView2Async(env);
         }
 
         private void ShowMessage(object sender, CoreWebView2WebMessageReceivedEventArgs args)
